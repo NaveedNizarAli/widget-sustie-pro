@@ -1,0 +1,20 @@
+{
+  "name": "widget",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "parcel serve src/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "gradio": "^0.1.0",
+    "parcel": "^1.12.3"
+  }
+}

@@ -211,7 +211,7 @@ function () {
         fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt').then(function (response) {
           return response.json();
         }).then(function (data) {
-          var url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+          var url = window.location.href;
           console.log(url, data);
           data.map(function (element, idx) {
             if (element.product_url === url) {
@@ -253,7 +253,7 @@ function () {
         fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt').then(function (response) {
           return response.json();
         }).then(function (data) {
-          var url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+          var url = window.location.href;
           console.log(url, data);
           data.map(function (element, idx) {
             if (element.product_url === url) {
@@ -272,7 +272,7 @@ function () {
         fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt').then(function (response) {
           return response.json();
         }).then(function (data) {
-          var url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+          var url = window.location.href;
           console.log(url, data);
           data.map(function (element, idx) {
             if (element.product_url === url) {
@@ -338,7 +338,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51418" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

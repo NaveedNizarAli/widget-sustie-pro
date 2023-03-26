@@ -43,7 +43,7 @@ export class Widget {
 
             const closeIcon = document.createElement('img');
             closeIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/cross.svg';
-            closeIcon.classList.add('icon', 'hidden');
+            closeIcon.classList.add('icon', 'hidden1');
             this.closeIcon = closeIcon;
 
             buttonContainer.appendChild(this.chatIcon);
@@ -51,7 +51,7 @@ export class Widget {
             buttonContainer.addEventListener('click', this.toggleOpen.bind(this));
 
             this.messageContainer = document.createElement('div');
-            this.messageContainer.classList.add('hidden', 'message-container');
+            this.messageContainer.classList.add('hidden1', 'message-container');
 
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
@@ -101,7 +101,7 @@ export class Widget {
                 border-radius: 50%;
                 transition   : transform .3s ease;
             }
-            .hidden {
+            .hidden1 {
                 transform: scale(0);
             }
             .button-container {
@@ -113,6 +113,7 @@ export class Widget {
             }
             .message-container {
                 border       : 2px solid #CFD5BE;
+                background   : #ffffff;
                 border-radius: 36px;
                 right        : 32px;
                 bottom       : 60px;
@@ -132,7 +133,7 @@ export class Widget {
                 display: none;  /* Safari and Chrome */
             }
 
-            .message-container.hidden {
+            .message-container.hidden1 {
                 max-height: 0px;
             }
             
@@ -156,7 +157,7 @@ export class Widget {
             }
 
             .circle .glass{
-                padding: 16px 18px;
+                padding: 14px 18px;
                 box-sizing: inherit;
             }
 
@@ -273,9 +274,9 @@ export class Widget {
                         }
                     })
             });
-            this.chatIcon.classList.add('hidden');
-            this.closeIcon.classList.remove('hidden');
-            this.messageContainer.classList.remove('hidden');
+            this.chatIcon.classList.add('hidden1');
+            this.closeIcon.classList.remove('hidden1');
+            this.messageContainer.classList.remove('hidden1');
             let a = document.getElementById('widgetButton').style.boxShadow = "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px";
         } else {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
@@ -294,9 +295,9 @@ export class Widget {
                     })
             });
             this.createMessageContainerContent();
-            this.chatIcon.classList.remove('hidden');
-            this.closeIcon.classList.add('hidden');
-            this.messageContainer.classList.add('hidden');
+            this.chatIcon.classList.remove('hidden1');
+            this.closeIcon.classList.add('hidden1');
+            this.messageContainer.classList.add('hidden1');
             let a = document.getElementById('widgetButton').style.boxShadow = "none"
         }
     }
@@ -304,16 +305,14 @@ export class Widget {
 
     createWidget(){
         return(
-            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; width: 600px !important; overflow: hidden;">
+            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px !important; overflow: hidden1;">
                     <div class="mainHead">It is our mission to reduce waste and fashion pollution</div> 
                     <div class="subHead">This is the impact of buying this item</div>
 
                     <div class="rowCircle">
                         <div class="col-md-4">
                             <div class="circle">
-                                <svg class="glass svg" width="40" height="47" viewBox="0 0 40 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M36.6044 16.7613C31.4169 21.177 25.9848 19.9041 20.4931 18.6169C14.6776 17.2534 8.79165 15.8749 3.23165 21.8024L5.38962 42.9831C5.39545 43.0154 5.39862 43.0488 5.39862 43.0827C5.39862 43.5902 5.60433 44.0498 5.93686 44.3826C6.26938 44.7151 6.72899 44.9208 7.23678 44.9208C7.25319 44.9208 7.26908 44.9216 7.28496 44.923L31.9959 44.91C32.0174 44.9073 32.0393 44.906 32.0616 44.906C32.5694 44.906 33.0287 44.7003 33.3615 44.3678C33.6233 44.1059 33.8065 43.7652 33.8727 43.3842L33.8989 43.1298C33.8997 43.1091 33.9 43.0885 33.9 43.0678C33.9 43.0154 33.9071 42.9649 33.9206 42.9169L36.6044 16.7613ZM3.08603 20.374L1.31856 3.02551C1.32148 2.52222 1.52666 2.06685 1.8568 1.73671C2.18933 1.40418 2.64893 1.19847 3.15672 1.19847H36.176C36.6836 1.19847 37.1432 1.40418 37.476 1.73671C37.8056 2.06632 38.0105 2.5209 38.0142 3.02339L36.7749 15.1C31.7338 20.1133 26.2707 18.8337 20.7443 17.538C14.8438 16.1547 8.87479 14.7558 3.08603 20.374ZM0.218265 3.13618C0.212441 3.10388 0.209263 3.07052 0.209263 3.03663C0.209263 2.22279 0.539141 1.48599 1.07261 0.952521C1.60608 0.419315 2.34288 0.0891724 3.15672 0.0891724H36.176C36.9899 0.0891724 37.7267 0.419051 38.2602 0.952521C38.7936 1.48599 39.1235 2.22279 39.1235 3.03663C39.1235 3.06972 39.1206 3.10229 39.115 3.13379L35.0077 43.1634C34.9831 43.9394 34.6585 44.6397 34.1459 45.152C33.6125 45.6854 32.8757 46.0153 32.0618 46.0153C32.0547 46.0153 32.0478 46.0153 32.0407 46.0148L7.28655 46.028C7.27014 46.0296 7.25372 46.0301 7.23678 46.0301C6.42294 46.0301 5.68614 45.7003 5.15267 45.1668C4.62211 44.6362 4.29276 43.9039 4.28959 43.0951L0.218265 3.13618Z" fill="black"/>
-                                </svg>                            
+                                <img class="glass" src="assets/glass.png" width="40px" height="47px"/>                       
                             </div>
                             <div class="subHead"><span id="water"></span> days</div>
                             <div class="text">of drink water saved</div>
@@ -322,21 +321,7 @@ export class Widget {
                      
                         <div class="col-md-4">
                             <div class="circle">
-                                <svg class="car svg" width="53" height="21" viewBox="0 0 53 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.8828 15.4788C14.8828 17.7702 13.0254 19.6278 10.7338 19.6278C8.44252 19.6278 6.58493 17.7702 6.58493 15.4788C6.58493 13.1874 8.44252 11.3298 10.7338 11.3298C13.0254 11.3298 14.8828 13.1874 14.8828 15.4788Z" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M14.8828 17.1384H38.9469" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M11.3207 14.892L10.1472 16.0655" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M47.2448 15.4788C47.2448 17.7702 45.3873 19.6278 43.0958 19.6278C40.8045 19.6278 38.9469 17.7702 38.9469 15.4788C38.9469 13.1874 40.8045 11.3298 43.0958 11.3298C45.3873 11.3298 47.2448 13.1874 47.2448 15.4788Z" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M42.5091 14.892L43.6826 16.0655" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6.58492 16.3085L2.58187 15.1648C1.51318 14.8594 0.776352 13.8826 0.776352 12.7712V7.81601C0.776352 6.97908 1.39962 6.27311 2.23012 6.16928L5.29915 5.78565C6.6993 5.61061 8.0596 5.19882 9.32166 4.56769L13.2597 2.59872C14.8728 1.79212 16.6516 1.37227 18.455 1.37227H25.848C27.8997 1.37227 29.9086 1.95734 31.6395 3.05874L38.1171 7.18083C38.1171 7.18083 45.6391 7.18083 50.3317 9.36004C51.4938 9.89977 52.2236 11.0789 52.2236 12.3603V15.1151C52.2236 16.3996 51.4805 17.1383 50.564 17.1383" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16.5424 7.18085H14.9419C13.8415 7.18085 12.7862 6.7437 12.008 5.96557L10.7339 4.69151" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M38.1171 7.18085H19.8617" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M18.2021 13.8192H35.6277" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M0.776375 9.67029H2.43594" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M49.7342 11.3298H51.7395" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M23.1808 7.18085V1.37228" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M13.6382 6.84375L14.7185 2.07189" stroke="black" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                          
+                                <img class="car" src="assets/car.png" width="53px" height="21px"/>                      
                             </div>
                             <div class="subHead svg"><span id="car"></span>Km car</div>
                             <div class="text">emissions saved</div>
@@ -344,9 +329,7 @@ export class Widget {
 
                         <div class="col-md-4">
                             <div class="circle">
-                                <svg class="mobile" width="28" height="48" viewBox="0 0 28 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M23.8244 0H3.46957C1.5564 0 0 1.5564 0 3.46957V43.9016C0 45.8148 1.5564 47.3712 3.46957 47.3712H23.8244C25.7376 47.3712 27.294 45.8148 27.294 43.9016V3.46957C27.294 1.5564 25.7376 0 23.8244 0ZM25.9061 37.6564H6.24523C5.862 37.6564 5.55131 37.9671 5.55131 38.3503C5.55131 38.7336 5.862 39.0442 6.24523 39.0442H25.9061V43.9016C25.9061 45.0496 24.9723 45.9834 23.8244 45.9834H3.46957C2.32165 45.9834 1.38783 45.0496 1.38783 43.9016V39.0442H3.46957C3.8528 39.0442 4.16349 38.7336 4.16349 38.3503C4.16349 37.9671 3.8528 37.6564 3.46957 37.6564H1.38783V6.93914H25.9061V37.6564ZM25.9061 5.55131H1.38783V3.46957C1.38783 2.32165 2.32165 1.38783 3.46957 1.38783H23.8244C24.9723 1.38783 25.9061 2.32165 25.9061 3.46957V5.55131Z" fill="black"/>
-                                </svg>                 
+                                <img class="mobile" src="assets/mobile.png" width="28px" height="48px" />              
                             </div>
                             <div class="subHead"><span id="charge"></span> smartphone</div>
                             <div class="text">charges saved</div>

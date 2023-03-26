@@ -312,7 +312,7 @@ export class Widget {
                     <div class="rowCircle">
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="glass" src="assets/glass.png" width="40px" height="47px"/>                       
+                                <img class="glass" src="https://gregarious-cupcake-fa0626.netlify.app/assets/glass.png" width="40px" height="47px"/>                       
                             </div>
                             <div class="subHead"><span id="water"></span> days</div>
                             <div class="text">of drink water saved</div>
@@ -321,7 +321,7 @@ export class Widget {
                      
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="car" src="assets/car.png" width="53px" height="21px"/>                      
+                                <img class="car" src="https://gregarious-cupcake-fa0626.netlify.app/assets/car.png" width="53px" height="21px"/>                      
                             </div>
                             <div class="subHead svg"><span id="car"></span>Km car</div>
                             <div class="text">emissions saved</div>
@@ -329,7 +329,7 @@ export class Widget {
 
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="mobile" src="assets/mobile.png" width="28px" height="48px" />              
+                                <img class="mobile" src="https://gregarious-cupcake-fa0626.netlify.app/assets/mobile.png" width="28px" height="48px" />              
                             </div>
                             <div class="subHead"><span id="charge"></span> smartphone</div>
                             <div class="text">charges saved</div>

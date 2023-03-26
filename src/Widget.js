@@ -5,8 +5,8 @@ export class Widget {
         this.initialise();
         this.createStyles();
         this.products     = []
-        this.GiftIcon     = window.location.origin + '/assets/gift.svg';
-        this.StarIcon     = window.location.origin + '/assets/star.svg';
+        this.GiftIcon     = "https://gregarious-cupcake-fa0626.netlify.app" + '/assets/gift.svg';
+        this.StarIcon     = "https://gregarious-cupcake-fa0626.netlify.app" + '/assets/star.svg';
     }
 
     getPosition(position) {
@@ -37,12 +37,12 @@ export class Widget {
             buttonContainer.setAttribute("id", "widgetButton")
 
             const chatIcon = document.createElement('img');
-            chatIcon.src = 'assets/chat.svg';
+            chatIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/chat.svg';
             chatIcon.classList.add('icon');
             this.chatIcon = chatIcon;
 
             const closeIcon = document.createElement('img');
-            closeIcon.src = 'assets/cross.svg';
+            closeIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/cross.svg';
             closeIcon.classList.add('icon', 'hidden');
             this.closeIcon = closeIcon;
 

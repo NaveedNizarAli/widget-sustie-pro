@@ -159,8 +159,8 @@ function () {
     this.initialise();
     this.createStyles();
     this.products = [];
-    this.GiftIcon = window.location.origin + '/assets/gift.svg';
-    this.StarIcon = window.location.origin + '/assets/star.svg';
+    this.GiftIcon = "https://gregarious-cupcake-fa0626.netlify.app" + '/assets/gift.svg';
+    this.StarIcon = "https://gregarious-cupcake-fa0626.netlify.app" + '/assets/star.svg';
   }
 
   _createClass(Widget, [{
@@ -194,11 +194,11 @@ function () {
         buttonContainer.classList.add('button-container');
         buttonContainer.setAttribute("id", "widgetButton");
         var chatIcon = document.createElement('img');
-        chatIcon.src = 'assets/chat.svg';
+        chatIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/chat.svg';
         chatIcon.classList.add('icon');
         _this.chatIcon = chatIcon;
         var closeIcon = document.createElement('img');
-        closeIcon.src = 'assets/cross.svg';
+        closeIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/cross.svg';
         closeIcon.classList.add('icon', 'hidden');
         _this.closeIcon = closeIcon;
         buttonContainer.appendChild(_this.chatIcon);
@@ -338,7 +338,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51418" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51815" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

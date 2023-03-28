@@ -24,13 +24,34 @@ export class Widget {
             console.log('script Url ', document.currentScript.getAttribute('brand'))
 
 
-        setTimeout(()=>{
+            setTimeout(()=>{
             const container = document.createElement('div');
+            container.style.position = 'fixed';
+            Object.keys(this.position)
+                .forEach(key => container.style[key] = this.position[key]);
+            console.log('document ', document.body);
             document.body.appendChild(container);
 
-         
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('button-container')
+            buttonContainer.setAttribute("id", "widgetButton")
+
+            const chatIcon = document.createElement('img');
+            chatIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/chat.svg';
+            chatIcon.classList.add('icon');
+            this.chatIcon = chatIcon;
+
+            const closeIcon = document.createElement('img');
+            closeIcon.src = 'https://gregarious-cupcake-fa0626.netlify.app/assets/cross.svg';
+            closeIcon.classList.add('icon', 'hidden1');
+            this.closeIcon = closeIcon;
+
+            buttonContainer.appendChild(this.chatIcon);
+            buttonContainer.appendChild(this.closeIcon);
+            buttonContainer.addEventListener('click', this.toggleOpen.bind(this));
+
             this.messageContainer = document.createElement('div');
-            this.messageContainer.classList.add('message-container');
+            this.messageContainer.classList.add('hidden1', 'message-container');
 
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
@@ -53,8 +74,7 @@ export class Widget {
             
 
             container.appendChild(this.messageContainer);
-
-            document.getElementsByClassName("addons-block")[0].appendChild(container)
+            container.appendChild(buttonContainer);
         },500)
     }
 
@@ -81,7 +101,9 @@ export class Widget {
                 border-radius: 50%;
                 transition   : transform .3s ease;
             }
-           
+            .hidden1 {
+                transform: scale(0);
+            }
             .button-container {
                 background-color: #2960EC;
                 width           : 48px;
@@ -93,6 +115,9 @@ export class Widget {
                 border       : 2px solid #CFD5BE;
                 background   : #ffffff;
                 border-radius: 36px;
+                right        : 32px;
+                bottom       : 60px;
+                position     : absolute;
                 max-height   : 300px;
                 max-width    : 600px;
                 overflow-y   : auto;
@@ -108,7 +133,9 @@ export class Widget {
                 display: none;  /* Safari and Chrome */
             }
 
-        
+            .message-container.hidden1 {
+                max-height: 0px;
+            }
             
             .rowCircle{
                 margin-top: 8px;
@@ -228,12 +255,57 @@ export class Widget {
     }
 
 
-  
+    toggleOpen() {
+        this.open = !this.open;
+        if (this.open) {
+
+            fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
+                .then((response) => response.json())
+                .then((data) => {
+                    let url = window.location.href;
+                    console.log(url, data);
+
+                    data.map((element, idx)=>{
+                        if(element.product_url === url){
+                            document.getElementById("water").innerText = element.co2_ref_water
+                            document.getElementById("car").innerText = element.co2_ref_car
+                            document.getElementById("charge").innerText = element.co2_ref_smartphones
+                            document.getElementById("tree").innerText = element.climate_action_trees
+                        }
+                    })
+            });
+            this.chatIcon.classList.add('hidden1');
+            this.closeIcon.classList.remove('hidden1');
+            this.messageContainer.classList.remove('hidden1');
+            let a = document.getElementById('widgetButton').style.boxShadow = "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px";
+        } else {
+            fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
+                .then((response) => response.json())
+                .then((data) => {
+                    let url = window.location.href;
+                    console.log(url, data);
+
+                    data.map((element, idx)=>{
+                        if(element.product_url === url){
+                            document.getElementById("water").innerText = element.co2_ref_water
+                            document.getElementById("car").innerText = element.co2_ref_car
+                            document.getElementById("charge").innerText = element.co2_ref_smartphones
+                            document.getElementById("tree").innerText = element.climate_action_trees
+                        }
+                    })
+            });
+            this.createMessageContainerContent();
+            this.chatIcon.classList.remove('hidden1');
+            this.closeIcon.classList.add('hidden1');
+            this.messageContainer.classList.add('hidden1');
+            let a = document.getElementById('widgetButton').style.boxShadow = "none"
+        }
+    }
 
 
     createWidget(){
         return(
-            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px !important; overflow: hidden;">
+            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px !important; overflow: hidden1;">
                     <div class="mainHead">It is our mission to reduce waste and fashion pollution</div> 
                     <div class="subHead">This is the impact of buying this item</div>
 

@@ -36,6 +36,7 @@ export class Widget {
                 .then((response) => response.json())
                 .then((data) => {
                     let url = window.location.href;
+                    if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
 
                     data.map((element, idx)=>{
@@ -223,6 +224,79 @@ export class Widget {
             
 
 
+            @media only screen and (max-width: 600px) {
+                .message-container {
+                    width: 100% !important;
+                }
+
+                .flowSection {
+                    width: 100% !important;
+                }
+
+                .mainHead{
+                    font-size: 14px;
+                }
+
+                .subHead {
+                    font-size: 12px;
+                }
+
+                .text {
+                    font-size: 12px;
+                }
+
+                .caption {
+                    font-size: 11px;
+                }
+
+                .circle{
+                    width : 60px;
+                    height : 60px; 
+                }
+
+                .car{
+                    width : 42px;
+                    height : 18px;
+                }
+
+                .glass{
+                    width : 26px;
+                    height : 36px;
+                }
+
+                .mobile{
+                    width : 20px;
+                    height : 35px;
+                }
+
+                .circle .glass{
+                    padding-top: 12px;
+                    box-sizing: inherit;
+                }
+    
+                
+                .circle .car{
+                    padding-top: 20px;
+                    box-sizing: inherit;
+                }
+    
+                
+                .circle .mobile{
+                    padding-top: 12px;
+                    box-sizing: inherit;
+                }
+
+                .colTree svg {
+                    width : 36px;
+                    height: 36px;
+                }
+
+                .treeHead  {
+                    font-size: 11px;
+                }
+            }
+
+
         `.replace(/^\s+|\n/gm, '');
         document.head.appendChild(styleTag);
     }
@@ -233,7 +307,7 @@ export class Widget {
 
     createWidget(){
         return(
-            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px !important; overflow: hidden;">
+            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
                     <div class="mainHead">It is our mission to reduce waste and fashion pollution</div> 
                     <div class="subHead">This is the impact of buying this item</div>
 

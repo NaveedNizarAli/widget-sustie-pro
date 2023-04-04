@@ -35,16 +35,45 @@ export class Widget {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
                 .then((data) => {
-                    let url = window.location.href;
+                    // let url = window.location.href;
+                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
 
                     data.map((element, idx)=>{
                         if(element.product_url === url){
-                            document.getElementById("water").innerText = element.co2_ref_water
-                            document.getElementById("car").innerText = element.co2_ref_car
-                            document.getElementById("charge").innerText = element.co2_ref_smartphones
-                            document.getElementById("tree").innerText = element.climate_action_trees
+                            document.getElementById("water").innerText = element.co2_ref_water + " "
+                            document.getElementById("car").innerText = element.co2_ref_car + " "
+                            document.getElementById("charge").innerText = element.co2_ref_smartphones + " "
+
+                            //colors
+                            document.getElementsByClassName("message-container")[0].style.border = "2px solid " + element.main_color; 
+                            document.getElementsByClassName("tree")[0].style.background = element.sub_color; 
+                            var circles = document.getElementsByClassName("circle");
+                            for(var i = 0; i < circles.length; i++)
+                            {
+                                document.getElementsByClassName("circle")[i].style.background = element.main_color;
+                            }
+
+                            //text
+                            document.getElementById("content_header_maintext").innerHTML = element.content_header_maintext
+                            document.getElementById("content_header_subtext").innerHTML = element.content_header_subtext
+                            document.getElementById("content_co2_first_maintext").innerHTML = element.content_co2_first_maintext
+                            document.getElementById("content_co2_second_maintext").innerHTML = element.content_co2_second_maintext
+                            document.getElementById("content_co2_third_maintext").innerHTML = element.content_co2_third_maintext
+                            document.getElementById("content_co2_first_subtext").innerHTML = element.content_co2_first_subtext
+                            document.getElementById("content_co2_second_subtext").innerHTML = element.content_co2_second_subtext
+                            document.getElementById("content_co2_third_subtext").innerHTML = element.content_co2_third_subtext
+                            document.getElementById("content_climate_text").innerHTML = element.content_climate_text
+                            document.getElementById("content_climate_headertext").innerHTML = element.content_climate_headertext
+
+                            //climate
+                            let text1 = element.content_climate_subtext.split("plant")[0] + "plant "
+                            let text2 = element.content_climate_subtext.split("plant")[1];
+                            console.log("text1", text1, text2, element.climate_action_trees)
+                            document.getElementById("content_climate_subtext").innerHTML = text1 + element.climate_action_trees + " " + text2
+                            
                         }
                     })
             });
@@ -55,7 +84,7 @@ export class Widget {
 
             container.appendChild(this.messageContainer);
 
-            document.getElementsByClassName("addons-block")[0].appendChild(container)
+            if(document.getElementsByClassName("addons-block"))document.getElementsByClassName("addons-block")[0].appendChild(container)
         },500)
     }
 
@@ -91,7 +120,6 @@ export class Widget {
                 border-radius   : 50%;
             }
             .message-container {
-                border       : 2px solid #CFD5BE;
                 background   : #ffffff;
                 border-radius: 36px;
                 max-height   : 300px;
@@ -120,7 +148,6 @@ export class Widget {
             }
 
             .circle {
-                background: #CFD5BE;
                 border-radius: 50%;
                 width: 75px;
                 height: 75px;
@@ -198,7 +225,6 @@ export class Widget {
                 flex-direction : row;
                 justify-content: space-evenly;               
                 width: 50%;
-                background: rgba(237, 234, 211, 0.54);
                 border-radius: 8px;
             }
           
@@ -219,6 +245,7 @@ export class Widget {
 
             .colTree {
                 text-align: center;
+                padding: 0px 14px;
                 text-align-last: center;
             }
             
@@ -313,16 +340,16 @@ export class Widget {
     createWidget(){
         return(
             ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
-                    <div class="mainHead">It is our mission to reduce waste and fashion pollution</div> 
-                    <div class="subHead">This is the impact of buying this item</div>
+                    <div class="mainHead" id="content_header_maintext"></div> 
+                    <div class="subHead" id="content_header_subtext"></div>
 
                     <div class="rowCircle">
                         <div class="col-md-4">
                             <div class="circle">
                                 <img class="glass" src="https://gregarious-cupcake-fa0626.netlify.app/assets/glass.png" width="40px" height="47px"/>                       
                             </div>
-                            <div class="subHead"><span id="water"></span> days</div>
-                            <div class="text">of drink water saved</div>
+                            <div class="subHead"><span id="water"></span><span  id="content_co2_first_maintext"></span></div>
+                            <div class="text" id="content_co2_first_subtext"></div>
                         </div>
 
                      
@@ -330,21 +357,21 @@ export class Widget {
                             <div class="circle">
                                 <img class="car" src="https://gregarious-cupcake-fa0626.netlify.app/assets/car.png" width="53px" height="21px"/>                      
                             </div>
-                            <div class="subHead svg"><span id="car"></span>Km car</div>
-                            <div class="text">emissions saved</div>
+                            <div class="subHead svg"><span id="car"></span><span  id="content_co2_second_maintext"></span></div>
+                            <div class="text" id="content_co2_second_subtext"></div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="circle">
                                 <img class="mobile" src="https://gregarious-cupcake-fa0626.netlify.app/assets/mobile.png" width="28px" height="48px" />              
                             </div>
-                            <div class="subHead"><span id="charge"></span> smartphone</div>
-                            <div class="text">charges saved</div>
+                            <div class="subHead"><span id="charge"></span><span  id="content_co2_third_maintext"></span></div>
+                            <div class="text" id="content_co2_third_subtext"></div>
                         </div>
 
                     </div>
 
-                    <div class="caption">Figures when compared to a fast fashion item of the same weight</div>
+                    <div class="caption" id="content_climate_text"></div>
 
                     <div class="tree">
                             <div class="colTree">
@@ -367,9 +394,8 @@ export class Widget {
                             </div>
 
                             <div class="colTree">
-                                <div class="treeHead bold">CLIMATE ACTION</div>
-                                <div class="treeHead">We will plant <span id="tree"></span> trees when you<br/> 
-                                make this purchase too</div>
+                                <div class="treeHead bold" id="content_climate_headertext"></div>
+                                <div class="treeHead" id="content_climate_subtext"></div>
                             <div>
                     </div>
               </div>

@@ -256,17 +256,17 @@ export class Widget {
 
                 .car{
                     width : 42px;
-                    height : 18px;
+                    height : auto;
                 }
 
                 .glass{
                     width : 26px;
-                    height : 36px;
+                    height : auto;
                 }
 
                 .mobile{
                     width : 20px;
-                    height : 35px;
+                    height : auto;
                 }
 
                 .circle .glass{

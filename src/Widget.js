@@ -35,8 +35,8 @@ export class Widget {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
                 .then((data) => {
-                    let url = window.location.href;
-                    // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+                    // let url = window.location.href;
+                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
@@ -79,7 +79,9 @@ export class Widget {
                         }
                     })
                    
-                    
+
+                    if(check) document.getElementById("flowSection").style.display = "block"
+
             });
             
             this.createMessageContainerContent();
@@ -343,7 +345,7 @@ export class Widget {
 
     createWidget(){
         return(
-            ` <div class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
+            ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="display:none; height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
                     <div class="mainHead" id="content_header_maintext"></div> 
                     <div class="subHead" id="content_header_subtext"></div>
 

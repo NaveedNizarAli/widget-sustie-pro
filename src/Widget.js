@@ -229,6 +229,11 @@ export class Widget {
                     width: 100% !important;
                 }
 
+                .tree{
+                    width: 70%;
+                    margin-left: 15%;
+                }
+                
                 .flowSection {
                     width: 100% !important;
                 }

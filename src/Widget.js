@@ -270,13 +270,13 @@ export class Widget {
                 }
 
                 .circle .glass{
-                    padding-top: 12px;
+                    padding-top: 14px;
                     box-sizing: inherit;
                 }
     
                 
                 .circle .car{
-                    padding-top: 20px;
+                    padding-top: 22px;
                     box-sizing: inherit;
                 }
     

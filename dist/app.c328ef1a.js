@@ -192,19 +192,20 @@ function () {
         fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt').then(function (response) {
           return response.json();
         }).then(function (data) {
-          var url = window.location.href; // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
-
+          // let url = window.location.href;
+          var url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
           if (url.includes("?")) url = url.split("?")[0];
           console.log(url, data);
           var check = false;
+          var border;
           data.map(function (element, idx) {
             if (element.product_url === url) {
-              check = true;
+              if (element.show.toLowerCase() === "yes") check = true;
+              border = element.main_color;
               document.getElementById("water").innerText = element.co2_ref_water + " ";
               document.getElementById("car").innerText = element.co2_ref_car + " ";
               document.getElementById("charge").innerText = element.co2_ref_smartphones + " "; //colors
 
-              document.getElementsByClassName("message-container")[0].style.border = "2px solid " + element.main_color;
               document.getElementsByClassName("tree")[0].style.background = element.sub_color;
               var circles = document.getElementsByClassName("circle");
 
@@ -230,7 +231,12 @@ function () {
               document.getElementById("content_climate_subtext").innerHTML = text1 + element.climate_action_trees + " " + text2;
             }
           });
-          if (check) document.getElementById("flowSection").style.display = "block";
+          setTimeout(function () {
+            if (check) {
+              document.getElementsByClassName("message-container")[0].style.border = "2px solid " + border;
+              document.getElementById("flowSection").style.display = "block";
+            }
+          }, 5000);
         });
 
         _this.createMessageContainerContent();
@@ -301,7 +307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54868" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49956" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

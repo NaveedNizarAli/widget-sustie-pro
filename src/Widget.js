@@ -35,22 +35,23 @@ export class Widget {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
                 .then((data) => {
-                    let url = window.location.href;
-                    // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+                    // let url = window.location.href;
+                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
 
                     let check = false;
+                    let border;
                     data.map((element, idx)=>{
                         if(element.product_url === url){
-                            check = true;
+                            if(element.show.toLowerCase() === "yes") check = true;
+                            border = element.main_color
                             document.getElementById("water").innerText = element.co2_ref_water + " "
                             document.getElementById("car").innerText = element.co2_ref_car + " "
                             document.getElementById("charge").innerText = element.co2_ref_smartphones + " "
 
                             //colors
-                            document.getElementsByClassName("message-container")[0].style.border = "2px solid " + element.main_color; 
                             document.getElementsByClassName("tree")[0].style.background = element.sub_color; 
                             var circles = document.getElementsByClassName("circle");
                             for(var i = 0; i < circles.length; i++)
@@ -80,7 +81,12 @@ export class Widget {
                     })
                    
 
-                    if(check) document.getElementById("flowSection").style.display = "block"
+                    setTimeout(()=>{
+                        if(check) {
+                            document.getElementsByClassName("message-container")[0].style.border = "2px solid " + border; 
+                            document.getElementById("flowSection").style.display = "block"
+                        }
+                    },5000)
 
             });
             

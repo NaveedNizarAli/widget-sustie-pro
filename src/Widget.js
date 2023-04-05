@@ -86,7 +86,7 @@ export class Widget {
                             document.getElementsByClassName("message-container")[0].style.border = "2px solid " + border; 
                             document.getElementById("flowSection").style.display = "block"
                         }
-                    },3000)
+                    },2000)
 
             });
             
@@ -97,7 +97,7 @@ export class Widget {
             container.appendChild(this.messageContainer);
 
             if(document.getElementsByClassName("addons-block"))document.getElementsByClassName("addons-block")[0].appendChild(container)
-        },500)
+        },100)
     }
 
 

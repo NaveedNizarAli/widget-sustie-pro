@@ -86,7 +86,7 @@ export class Widget {
                             document.getElementsByClassName("message-container")[0].style.border = "2px solid " + border; 
                             document.getElementById("flowSection").style.display = "block"
                         }
-                    },5000)
+                    },3000)
 
             });
             

@@ -237,7 +237,7 @@ function () {
               document.getElementById("content").style.display = "block";
               document.getElementById("loader").style.display = "none";
             }
-          }, 10000);
+          }, 2000);
         });
 
         _this.createMessageContainerContent();
@@ -308,7 +308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51350" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51391" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

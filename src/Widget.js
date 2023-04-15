@@ -88,7 +88,7 @@ export class Widget {
                             document.getElementById("loader").style.display = "none"
 
                         }
-                    },1000)
+                    },10000)
 
             });
             

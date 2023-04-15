@@ -35,8 +35,8 @@ export class Widget {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
                 .then((data) => {
-                    let url = window.location.href;
-                    // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+                    // let url = window.location.href;
+                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
@@ -84,9 +84,11 @@ export class Widget {
                     setTimeout(()=>{
                         if(check) {
                             document.getElementsByClassName("message-container")[0].style.border = "2px solid " + border; 
-                            document.getElementById("flowSection").style.display = "block"
+                            document.getElementById("content").style.display = "block"
+                            document.getElementById("loader").style.display = "none"
+
                         }
-                    },2000)
+                    },500)
 
             });
             
@@ -351,7 +353,11 @@ export class Widget {
 
     createWidget(){
         return(
-            ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="display:none; height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
+            ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
+                <div id="loader" style="text-align: center; margin-top: 18%;">
+                    <img class="" src="http://localhost:1234/assets/loader.gif" width="60px" height="60px" />              
+                </div>
+                <div id="content" style="display: none;">
                     <div class="mainHead" id="content_header_maintext"></div> 
                     <div class="subHead" id="content_header_subtext"></div>
 
@@ -410,6 +416,7 @@ export class Widget {
                                 <div class="treeHead" id="content_climate_subtext"></div>
                             <div>
                     </div>
+                </div>
               </div>
             `
         )

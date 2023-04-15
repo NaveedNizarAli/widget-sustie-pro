@@ -88,7 +88,7 @@ export class Widget {
                             document.getElementById("loader").style.display = "none"
 
                         }
-                    },500)
+                    },1000)
 
             });
             
@@ -355,7 +355,7 @@ export class Widget {
         return(
             ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
                 <div id="loader" style="text-align: center; margin-top: 18%;">
-                    <img class="" src="http://localhost:1234/assets/loader.gif" width="60px" height="60px" />              
+                    <img class="" src="https://widget.sustie.io/assets/loader.gif" width="60px" height="60px" />              
                 </div>
                 <div id="content" style="display: none;">
                     <div class="mainHead" id="content_header_maintext"></div> 
@@ -364,7 +364,7 @@ export class Widget {
                     <div class="rowCircle">
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="glass" src="https://gregarious-cupcake-fa0626.netlify.app/assets/glass.png" width="40px" height="47px"/>                       
+                                <img class="glass" src="https://widget.sustie.io/assets/glass.png" width="40px" height="47px"/>                       
                             </div>
                             <div class="subHead"><span id="water"></span><span  id="content_co2_first_maintext"></span></div>
                             <div class="text" id="content_co2_first_subtext"></div>
@@ -373,7 +373,7 @@ export class Widget {
                      
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="car" src="https://gregarious-cupcake-fa0626.netlify.app/assets/car.png" width="53px" height="21px"/>                      
+                                <img class="car" src="https://widget.sustie.io/assets/car.png" width="53px" height="21px"/>                      
                             </div>
                             <div class="subHead svg"><span id="car"></span><span  id="content_co2_second_maintext"></span></div>
                             <div class="text" id="content_co2_second_subtext"></div>
@@ -381,7 +381,7 @@ export class Widget {
 
                         <div class="col-md-4">
                             <div class="circle">
-                                <img class="mobile" src="https://gregarious-cupcake-fa0626.netlify.app/assets/mobile.png" width="28px" height="48px" />              
+                                <img class="mobile" src="https://widget.sustie.io/assets/mobile.png" width="28px" height="48px" />              
                             </div>
                             <div class="subHead"><span id="charge"></span><span  id="content_co2_third_maintext"></span></div>
                             <div class="text" id="content_co2_third_subtext"></div>

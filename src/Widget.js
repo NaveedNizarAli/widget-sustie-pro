@@ -35,8 +35,8 @@ export class Widget {
             fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
                 .then((response) => response.json())
                 .then((data) => {
-                    // let url = window.location.href;
-                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+                    let url = window.location.href;
+                    // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);

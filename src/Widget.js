@@ -354,7 +354,7 @@ export class Widget {
     createWidget(){
         return(
             ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
-                <div id="loader" style="text-align: center; margin-top: 18%;">
+                <div id="loader" style="text-align: -webkit-center; margin-top: 18%;">
                     <img class="" src="https://widget.sustie.io/assets/loader.gif" width="60px" height="60px" />              
                 </div>
                 <div id="content" style="display: none;">

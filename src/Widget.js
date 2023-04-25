@@ -19,10 +19,9 @@ export class Widget {
     
     initialise() {
 
-            console.log('window ', document.currentScript)
-
-            console.log('script Url ', document.currentScript.getAttribute('brand'))
-
+        // api link 
+        // 'https://sheetdb.io/api/v1/m95hi9ve95rqt'
+        let api = 'https://sheetdb.io/api/v1/m95hi9ve95rqt'
 
         setTimeout(()=>{
             const container = document.createElement('div');
@@ -32,7 +31,7 @@ export class Widget {
             this.messageContainer = document.createElement('div');
             this.messageContainer.classList.add('message-container');
 
-            fetch('https://sheetdb.io/api/v1/m95hi9ve95rqt')
+            fetch(api)
                 .then((response) => response.json())
                 .then((data) => {
                     let url = window.location.href;
@@ -45,7 +44,11 @@ export class Widget {
                     let border;
                     data.map((element, idx)=>{
                         if(element.product_url === url){
-                            if(element.show.toLowerCase() === "yes") check = true;
+                            if(element.show.toLowerCase() === "yes") {
+                                check = true;
+                                document.getElementById("loader").style.display = "block"
+                            }   
+
                             border = element.main_color
                             document.getElementById("water").innerText = element.co2_ref_water + " "
                             document.getElementById("car").innerText = element.co2_ref_car + " "
@@ -354,7 +357,7 @@ export class Widget {
     createWidget(){
         return(
             ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
-                <div id="loader" style="text-align: -webkit-center; margin-top: 18%;">
+                <div id="loader" style="display: none; text-align: -webkit-center; margin-top: 18%;">
                     <img class="" src="https://widget.sustie.io/assets/loader.gif" width="60px" height="60px" />              
                 </div>
                 <div id="content" style="display: none;">

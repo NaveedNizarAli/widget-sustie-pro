@@ -193,8 +193,8 @@ function () {
         fetch(api).then(function (response) {
           return response.json();
         }).then(function (data) {
-          // let url = window.location.href;
-          var url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+          var url = window.location.href; // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+
           if (url.includes("?")) url = url.split("?")[0];
           console.log(url, data);
           var check = false;
@@ -336,7 +336,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54165" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49870" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

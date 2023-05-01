@@ -25,7 +25,6 @@ export class Widget {
 
         setTimeout(()=>{
             const container = document.createElement('div');
-            container.style.width = "350px";
             document.body.appendChild(container);
 
          

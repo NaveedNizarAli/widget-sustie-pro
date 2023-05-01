@@ -185,7 +185,6 @@ function () {
       var api = 'https://sheetdb.io/api/v1/m95hi9ve95rqt';
       setTimeout(function () {
         var container = document.createElement('div');
-        container.style.width = "350px";
         document.body.appendChild(container);
         _this.messageContainer = document.createElement('div');
 
@@ -337,7 +336,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53647" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54165" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -34,8 +34,8 @@ export class Widget {
             fetch(api)
                 .then((response) => response.json())
                 .then((data) => {
-                    let url = window.location.href;
-                    // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
+                    // let url = window.location.href;
+                    let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
                     console.log(url, data);
@@ -139,8 +139,7 @@ export class Widget {
             .message-container {
                 background   : #ffffff;
                 border-radius: 36px;
-                max-height   : 300px;
-                max-width    : 600px;
+                max-width    : 100%;
                 overflow-y   : auto;
                 transition   : max-height .2s ease;
                 font-family: 'Inter', sans-serif;
@@ -243,6 +242,7 @@ export class Widget {
                 justify-content: space-evenly;               
                 width: 50%;
                 border-radius: 8px;
+                margin-bottom: 12px;
             }
           
 
@@ -356,7 +356,7 @@ export class Widget {
 
     createWidget(){
         return(
-            ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="height: 300px !important; z-index:99; background: #ffffff; width: 600px; overflow: hidden;">
+            ` <div id="flowSection" class="flowSection w-100 bg-color-neutral0" style="z-index:99; background: #ffffff; width: 100%; overflow: hidden;">
                 <div id="loader" style="display: none; text-align: -webkit-center; margin-top: 18%;">
                     <img class="" src="https://widget.sustie.io/assets/loader.gif" width="60px" height="60px" />              
                 </div>

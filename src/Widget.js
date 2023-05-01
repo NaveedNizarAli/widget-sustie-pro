@@ -25,6 +25,7 @@ export class Widget {
 
         setTimeout(()=>{
             const container = document.createElement('div');
+            container.style.width = "350px";
             document.body.appendChild(container);
 
          
@@ -73,6 +74,32 @@ export class Widget {
                             document.getElementById("content_co2_third_subtext").innerHTML = element.content_co2_third_subtext
                             document.getElementById("content_climate_text").innerHTML = element.content_climate_text
                             document.getElementById("content_climate_headertext").innerHTML = element.content_climate_headertext
+
+
+                            //styling for small div size small then 450px
+                            console.log("clientWidth", document.getElementById("flowSection").clientWidth)
+                            if(document.getElementById("flowSection").clientWidth < 450){
+                                document.getElementById("content").style.padding = "0px 12px";
+                                document.getElementById("content_header_maintext").style.fontSize = "17px"
+                                document.getElementById("content_header_subtext").style.fontSize = "15px"
+                                document.getElementById("content_co2_first_maintext").style.fontSize = "14px"
+                                document.getElementById("content_co2_second_maintext").style.fontSize = "14px"
+                                document.getElementById("content_co2_third_maintext").style.fontSize = "14px"
+                                document.getElementById("content_co2_first_subtext").style.fontSize = "12.5px"
+                                document.getElementById("content_co2_second_subtext").style.fontSize = "12.5px"
+                                document.getElementById("content_co2_third_subtext").style.fontSize = "12.5px"
+                                document.getElementById("content_climate_text").style.fontSize = "11px"
+                                document.getElementById("content_climate_headertext").style.fontSize = "12px"
+                                
+                                document.getElementById("tree").style.width = "80%"
+                                document.getElementById("tree").style.marginLeft = "10%"
+
+                                document.getElementById("water").style.fontSize = "14px"
+                                document.getElementById("car").style.fontSize = "14px"
+                                document.getElementById("charge").style.fontSize = "14px"
+
+                                document.getElementById("content_climate_subtext").style.fontSize = "11px"
+                            }
 
                             //climate
                             let text1 = element.content_climate_subtext.split("plant")[0] + "plant "
@@ -394,7 +421,7 @@ export class Widget {
 
                     <div class="caption" id="content_climate_text"></div>
 
-                    <div class="tree">
+                    <div class="tree" id="tree">
                             <div class="colTree">
                                 <svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M38.5492 21.2569C38.8241 21.2118 39.1053 21.1897 39.391 21.1897C42.7122 21.1897 45.4039 24.2342 45.4039 27.9897C45.4039 31.745 42.7122 34.7896 39.391 34.7896C36.0697 34.7896 33.378 31.745 33.378 27.9897C33.378 27.3061 33.4672 26.6464 33.6335 26.0248" stroke="black" stroke-width="1.70845" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>

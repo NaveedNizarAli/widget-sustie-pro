@@ -35,6 +35,7 @@ export class Widget {
                 .then((response) => response.json())
                 .then((data) => {
                     let url = window.location.href;
+                    // let url = "https://nidarosfashion.com/products/seamless-tights-yoga-pants-smilodox"
                     // let url = "https://nidarosfashion.com/products/easy-shorts-shorts-gap";
 
                     if(url.includes("?")) url = url.split("?")[0]
@@ -193,6 +194,10 @@ export class Widget {
                 border-radius: 50%;
                 width: 75px;
                 height: 75px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
 
             .rowCircle .col-md-4{
@@ -200,19 +205,16 @@ export class Widget {
             }
 
             .circle .glass{
-                padding-top: 14px;
                 box-sizing: inherit;
             }
 
             
             .circle .car{
-                padding-top: 27px;
                 box-sizing: inherit;
             }
 
             
             .circle .mobile{
-                padding-top: 14px;
                 box-sizing: inherit;
             }
 
@@ -326,7 +328,11 @@ export class Widget {
 
                 .circle{
                     width : 60px;
-                    height : 60px; 
+                    height : 60px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .car{
@@ -345,19 +351,16 @@ export class Widget {
                 }
 
                 .circle .glass{
-                    padding-top: 14px;
                     box-sizing: inherit;
                 }
     
                 
                 .circle .car{
-                    padding-top: 22px;
                     box-sizing: inherit;
                 }
     
                 
                 .circle .mobile{
-                    padding-top: 12px;
                     box-sizing: inherit;
                 }
 

@@ -139,22 +139,23 @@ export class Widget {
         main.innerHTML = this.createWidget()
         this.messageContainer.appendChild(main);
     }
-
+    
+    // .icon {
+    //     cursor       : pointer;
+    //     width        : 32px;
+    //     height       : 32px;
+    //     position     : absolute;
+    //     top          : 50%;
+    //     left         : 50%;
+    //     transform    : translate(-50%,-50%);
+    //     border-radius: 50%;
+    //     transition   : transform .3s ease;
+    // }
 
     createStyles() {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
-            .icon {
-                cursor       : pointer;
-                width        : 32px;
-                height       : 32px;
-                position     : absolute;
-                top          : 50%;
-                left         : 50%;
-                transform    : translate(-50%,-50%);
-                border-radius: 50%;
-                transition   : transform .3s ease;
-            }
+           
            
             .button-container {
                 background-color: #2960EC;
